@@ -18,4 +18,20 @@ We first need to create our VMs: a VM for our Control Plane Node and one (or mor
 * At least 2CPUs.
 * At least 25GB of disk space.
 
-*I also recommend to check the Guest Additions from the installation menu as it will allow us to enable the shared clipboard from host to guest.*
+*I also recommend to check the 'Guest Additions' from the installation menu as it will allow us to enable the shared clipboard from host to guest.*
+
+## Setup a Host-Only Network on Virtualbox
+
+## Ubuntu Setup
+
+## Insatll Kubelet, Kubeadm, Kubectl
+
+## Enable Kernel modules and configure systemctl
+
+## Install a Container Runtime (CRI-O)
+
+## Initiate the Controle Plane Node (Master Node Only)
+
+## Join the Worker Nodes (Worker Nodes Only)
+
+## Set Kubelet Node IPs
