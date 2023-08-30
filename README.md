@@ -12,8 +12,10 @@ This is my personal documentation containing the steps for building a Kubernetes
 ## Initial Setup
 
 We first need to create our VMs: a VM for our Control Plane Node and one (or more) for our Worker Nodes. Each machine should be provisionned with:
+
 * Ubuntu 22.04LTS OS
 * At least 2GB of RAM
 * At least 2CPUs.
-* At least 25GB of disk space. 
+* At least 25GB of disk space.
+
 *I also recommend to check the Guest Additions from the installation menu as it will allow us to enable the shared clipboard from host to guest.*
