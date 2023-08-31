@@ -164,8 +164,10 @@ $ sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock
 ```
 * Initiate the Master Node with Kubeadm
 ```
+$ export MASTER_IP=<your master node's IP>
 $ sudo kubeadm init --apiserver
 ```
+&nbsp;*Don't forget to set the MASTER_IP on your master node's static IP*<br/>
 &nbsp;*You can find a full list of options to pass to 'kubeadm init' and explainations [here](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/).*
 ## Join the Worker Nodes (Worker Nodes Only)
 
