@@ -221,3 +221,7 @@ $ kubectl get nodes -o wide
 * [Installing kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 * [Install CRI-O](https://github.com/cri-o/cri-o/blob/main/install.md#readme)
 * [Creating a cluster with kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+
+## Further Notes
+You should take a snapshot of you initial nodes. This will allow to recover your initial cluster state at all moment.
+I also recommend setting up an additional VM to use to operate the cluster.
