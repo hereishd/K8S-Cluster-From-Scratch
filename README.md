@@ -61,7 +61,8 @@ $ ifconfig
 ```
 ip addr show | grep enp0s8
 ```
-&nbsp; *keep the IP (192.168.xxx.xxx) and takeout the range /24*
+&nbsp; *keep the IP (192.168.XXX.XXX) and takeout the range '/24'*
+
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
