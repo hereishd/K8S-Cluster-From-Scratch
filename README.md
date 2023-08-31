@@ -62,7 +62,14 @@ $ ifconfig
 ip addr show | grep enp0s8
 ```
 &nbsp; *keep the IP (192.168.XXX.XXX) and takeout the range '/24'*
-<br/>
+* Get each VM, get your hostname
+```
+$ hostname
+```
+* Edit the hosts file
+```
+$ sudo nano /etc/hosts
+```
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
