@@ -169,7 +169,7 @@ $ sudo kubeadm init --apiserver-advertise-address=$MASTER_IP --apiserver-cert-ex
 ```
 &nbsp;*Don't forget to set the MASTER_IP with your master node's static IP*<br/>
 &nbsp;*You can find a full list of options to pass to 'kubeadm init' and explainations [here](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/).*<br/>
-&nbsp;*I recommand you to save the output of the init command as it contains your join command infos.*
+&nbsp;*I recommand you to save the output of the 'init' command as it contains your 'join' command infos.*
 * Setup you kube config file
 ```
 $ mkdir -p $HOME/.kube
@@ -181,5 +181,15 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 $ kubectl cluster-info
 ```
 ## Join the Worker Nodes (Worker Nodes Only)
+With the control plane ready you can add worker nodes to the cluster for running scheduled workloads.<br/>
+The join command that was given on the 'kubeadm init' output is used to add a worker node to the cluster.
+```
+ex: kubeadm init output
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 192.168.100.10:6443 --token 0mtvva.1snrqiu4snaivpoi \
+  --discovery-token-ca-cert-hash sha256:be9e86388bbeffeae73dd6f27375dbb5b25a33e8a316dfa8a4a4839b357360b6
+```
 
 ## Set Kubelet Node IPs
