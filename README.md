@@ -84,7 +84,9 @@ $ curl -fsSL  https://packages.cloud.google.com/apt/doc/apt-key.gpg|sudo gpg --d
 $ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 $ sudo apt update
 $ sudo apt install wget git kubelet kubeadm kubectl -y
+$ sudo apt-mark hold kubelet kubeadm kubectl
 ```
+&nbsp;*You can validate the installation with:*```$ kubectl version --client``` & ```$ kubeadm version```
 ## Enable Kernel modules and configure systemctl
 
 ## Install a Container Runtime (CRI-O)
