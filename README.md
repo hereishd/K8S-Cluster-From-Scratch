@@ -96,17 +96,40 @@ $ sudo modprobe br_netfilter
 * Configure sysctl
 ```
 $ sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
-EOF
+  net.bridge.bridge-nf-call-ip6tables = 1
+  net.bridge.bridge-nf-call-iptables = 1
+  net.ipv4.ip_forward = 1
+  EOF
 ```
 * Reload sysctl
 ```
 $ sudo sysctl --system
 ```
-## Install a Container Runtime (CRI-O)
-
+## Install a Container Runtime (in our case, CRI-O)
+* Configure the persistent loading of modules
+```
+$ sudo tee /etc/modules-load.d/k8s.conf <<EOF
+  overlay
+  br_netfilter
+  EOF
+```
+* Ensure you load modules
+```
+$ sudo modprobe overlay
+$ sudo modprobe br_netfilter
+```
+* Set up required sysctl params
+```
+$ sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+  net.bridge.bridge-nf-call-ip6tables = 1
+  net.bridge.bridge-nf-call-iptables = 1
+  net.ipv4.ip_forward = 1
+  EOF
+```
+* Reload sysctl
+```
+$ sudo sysctl --system
+```
 ## Initiate the Controle Plane Node (Master Node Only)
 
 ## Join the Worker Nodes (Worker Nodes Only)
