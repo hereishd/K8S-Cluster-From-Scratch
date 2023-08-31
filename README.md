@@ -169,7 +169,7 @@ $ sudo kubeadm init --apiserver-advertise-address=$MASTER_IP --apiserver-cert-ex
 ```
 &nbsp;*Don't forget to set the MASTER_IP with your master node's static IP*<br/>
 &nbsp;*You can find a full list of options to pass to 'kubeadm init' and explainations [here](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/).*
-*I strongly recommand you to cpoy and save the output of the init command as it contains your join command infos.*
+*I recommand you to save the output of the init command as it contains your join command infos.*
 * Setup you kube config file
 ```
 $ mkdir -p $HOME/.kube
