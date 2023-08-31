@@ -136,7 +136,7 @@ $ su
 $ export OS="xUbuntu_22.04"
 $ export VERSION=1.26
 ```
-&nbsp; *For the OS & VERSION variables you can refer to [the CRI-O documentation](https://github.com/cri-o/cri-o/blob/main/install.md#readme)
+&nbsp; *For the OS & VERSION variables you can refer to [the CRI-O documentation](https://github.com/cri-o/cri-o/blob/main/install.md#readme)*
 ## Initiate the Controle Plane Node (Master Node Only)
 
 ## Join the Worker Nodes (Worker Nodes Only)
