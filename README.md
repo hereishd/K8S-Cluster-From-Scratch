@@ -27,9 +27,31 @@ We first need to create our VMs: a VM for our Control Plane Node and one (or mor
 * First add your user to sudo
 ```
 $ su
-# usermod -aG sudo $USERNAME
-# reboot
+$ usermod -aG sudo $USERNAME
+$ reboot
 ```
+* Update & Upgrade Ubuntu
+```
+$ sudo apt update
+$ sudo apt -y full-upgrade
+$ [ -f /var/run/reboot-required ] && sudo reboot -f
+```
+* Install tools
+```
+$ sudo apt install curl apt-transport-https -y
+$ sudo apt install net-tools
+```
+* Disable firewall
+```$ sudo uwf disable```
+* Disable swap
+```
+$ swapoff -a
+$ sudo sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
+```
+*Yopu can confirm these settings are correct with:*```$ free -h```
+
+$ sudo swapoff -a
+
 
 ## Insatll Kubelet, Kubeadm, Kubectl
 
