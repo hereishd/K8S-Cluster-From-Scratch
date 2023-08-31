@@ -7,7 +7,7 @@ This is my personal documentation containing the steps for building a Kubernetes
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads) installed on your machine
 * A Ubuntu [22.04LTS](https://releases.ubuntu.com/jammy/) iso image 
 
-*Please note that you will need enough ressources to at least provide 2 Vms with 2GB of RAM or more and 2CPUs or more each.*
+*Please note that you will need enough ressources to at least provide 2 VMs with 2GB of RAM or more and 2CPUs or more each.*
 
 ## Initial Setup
 
@@ -86,9 +86,25 @@ $ sudo apt update
 $ sudo apt install wget git kubelet kubeadm kubectl -y
 $ sudo apt-mark hold kubelet kubeadm kubectl
 ```
-&nbsp;*You can validate the installation with:*```$ kubectl version --client``` *&* ```$ kubeadm version```
+&nbsp;*You can validate the installation with:* ```$ kubectl version --client``` *&* ```$ kubeadm version```
 ## Enable Kernel modules and configure systemctl
-
+* Enable kernel modules
+```
+$ sudo modprobe overlay
+$ sudo modprobe br_netfilter
+```
+* Configure sysctl
+```
+$ sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF
+```
+* Reload sysctl
+```
+$ sudo sysctl --system
+```
 ## Install a Container Runtime (CRI-O)
 
 ## Initiate the Controle Plane Node (Master Node Only)
