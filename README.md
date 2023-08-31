@@ -51,12 +51,13 @@ $ swapoff -a
 $ sudo sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
 ```
 &nbsp;*You can confirm these settings are correct with:*```$ free -h```
-* On each VM, get your host static IP (should be on adapter enp0s8).
+* On each VM, get your host static IP (should be the IP of adapter enp0s8).
 ```
 $ ifconfig
 ```
-Note the IP from enp0s8
-<br/>&nbsp;Or you can get the IP from 
+&nbsp;Note the IP from enp0s8
+<br/><br/>
+&nbsp;Alternatively, you can get the IP from 
 ```
 ip addr show | grep enp0s8
 ```
