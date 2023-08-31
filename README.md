@@ -76,7 +76,7 @@ $ sudo nano /etc/hosts
 
 127.0.0.1   localhost
 127.0.0.1   kmaster1.myguest.virtualbox.org kmaster1
-192.168.XXX.XXX kworker1  //For every node add IP and hostname
+192.168.XXX.XXX kworker1  <= For every node, add IP and hostname
 ```
 ## Insatll Kubelet, Kubeadm, Kubectl
 
