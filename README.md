@@ -182,7 +182,7 @@ $ kubectl cluster-info
 ```
 ## Join the Worker Nodes (Worker Nodes Only)
 With the control plane ready you can add worker nodes to the cluster for running scheduled workloads.<br/>
-The join command that was given on the 'kubeadm init' output is used to add a worker node to the cluster.
+The join command that was given on the 'kubeadm init' output is used to add worker nodes to the cluster.
 ```
 ex: kubeadm init output
 
@@ -191,10 +191,29 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 192.168.XXX.XXX:6443 --token 0mtvva.1snrqiu4snaivpoi \
   --discovery-token-ca-cert-hash sha256:be9e86388bbeffeae73dd6f27375dbb5b25a33e8a316dfa8a4a4839b357360b6
 ```
-* Execute the join command from the output
+* Execute the join command from the output on each worker node
 ```
 kubeadm join 192.168.XXX.XXX:6443 --token 0mtvva.1snrqiu4snaivpoi \
   --discovery-token-ca-cert-hash sha256:be9e86388bbeffeae73dd6f27375dbb5b25a33e8a316dfa8a4a4839b357360b6
 ```
 &nbsp;*Note that the token expires within 24h. To add more nodes in the future you will need to generate new tokens.*
 ## Set Kubelet Node IPs
+The setup is now almost done. If you go back to the master node and check the cluster info : ```$ kubectl get node``` you will see all your nodes and they should be in a Ready state.
+<br/>
+If you run the commande with the wide option: ```$kubectl get nodes - wide``` you will realise that all the nodes 'INTERNAL IP' have the same. We need to change this on each node.
+* Set Node Ip in the kubelet
+```
+$ sudo nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+```
+&nbsp;Add the ```--node-ip=192.168.XXX.XXX``` flag to KUBELET_CONFIG_ARGS
+* Restart Kubelet
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart kubelet
+```
+&nbsp; You can now check that your changes have been applied
+```
+$ kubectl get nodes -o wide
+```
+
+## References
