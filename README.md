@@ -52,9 +52,6 @@ $ sudo sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
 ```
 &nbsp;*You can confirm these settings are correct with:*```$ free -h```
 
-$ sudo swapoff -a
-
-
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
