@@ -191,5 +191,9 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 192.168.100.10:6443 --token 0mtvva.1snrqiu4snaivpoi \
   --discovery-token-ca-cert-hash sha256:be9e86388bbeffeae73dd6f27375dbb5b25a33e8a316dfa8a4a4839b357360b6
 ```
-
+* Execute the join command from the output
+```
+kubeadm join 192.168.XXX.XXX:6443 --token 0mtvva.1snrqiu4snaivpoi \
+  --discovery-token-ca-cert-hash sha256:be9e86388bbeffeae73dd6f27375dbb5b25a33e8a316dfa8a4a4839b357360b6
+```
 ## Set Kubelet Node IPs
