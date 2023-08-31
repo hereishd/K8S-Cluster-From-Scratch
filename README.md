@@ -158,7 +158,7 @@ $ systemctl status crio
 ```
 $ sudo systemctl enable kubelet
 ```
-* Pull the container images *(This is not required as they will be pulled on kubeadmin init)*
+* Pull the container images *(This is not required as they will be pulled on 'kubeadmin init')*
 ```
 $ sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock
 ```
@@ -166,7 +166,7 @@ $ sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock
 ```
 $ sudo kubeadm init --apiserver
 ```
-&nbsp;*You can find a full list of options to pass to 'kubeadm init' and explainations on the [kubernetes kubeadm official documentation page](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/)*
+&nbsp;*You can find a full list of options to pass to 'kubeadm init' and explainations on the [kubeadm official documentation page](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/)*
 ## Join the Worker Nodes (Worker Nodes Only)
 
 ## Set Kubelet Node IPs
