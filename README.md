@@ -78,8 +78,13 @@ ex: kmaster@kamaster:~$ nano /etc/hosts
 127.0.0.1       kmaster.myguest.virtualbox.org kmaster
 192.168.XXX.XXX kworker1  <= For every node, add IP and hostname
 ```
-## Insatll Kubelet, Kubeadm, Kubectl
-
+## Install Kubelet, Kubeadm, Kubectl
+```
+$ curl -fsSL  https://packages.cloud.google.com/apt/doc/apt-key.gpg|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/k8s.gpg
+$ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+$ sudo apt update
+$ sudo apt install wget git kubelet kubeadm kubectl -y
+```
 ## Enable Kernel modules and configure systemctl
 
 ## Install a Container Runtime (CRI-O)
