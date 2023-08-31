@@ -70,7 +70,14 @@ $ hostname
 ```
 $ sudo nano /etc/hosts
 ```
-&nbsp;For every MV, add the IP and hostname of the other VMs it will communicate with.
+&nbsp;For every VM, add the IP and hostname of the other VMs it will communicate with.
+```
+//ex: kmaster@kamaster:~$ nano /etc/hosts
+
+127.0.0.1   localhost
+127.0.0.1   kmaster1.myguest.virtualbox.org kmaster1
+192.168.XXX.XXX kworker1  //For every node add IP and hostname
+```
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
