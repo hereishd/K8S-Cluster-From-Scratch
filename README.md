@@ -42,7 +42,9 @@ $ sudo apt install curl apt-transport-https -y
 $ sudo apt install net-tools
 ```
 * Disable firewall
-```$ sudo uwf disable```
+```
+$ sudo uwf disable
+```
 * Disable swap
 ```
 $ swapoff -a
