@@ -135,8 +135,24 @@ $ sudo sysctl --system
 $ su
 $ export OS="xUbuntu_22.04"
 $ export VERSION=1.26
+$ echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+$ echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+$ curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | apt-key add -
+$ curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key add -
 ```
 &nbsp; *For the OS & VERSION variables you can refer to [the CRI-O documentation](https://github.com/cri-o/cri-o/blob/main/install.md#readme)*
+* Install CRI-O
+```
+$ sudo apt update
+$ sudo apt install cri-o cri-o-runc
+```
+* Start and enable the Service
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart crio
+$ sudo systemctl enable crio
+$ systemctl status crio
+```
 ## Initiate the Controle Plane Node (Master Node Only)
 
 ## Join the Worker Nodes (Worker Nodes Only)
