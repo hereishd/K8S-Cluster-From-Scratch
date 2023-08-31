@@ -52,7 +52,7 @@ $ sudo sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
 ```
 &nbsp;*You can confirm these settings are correct with:*```$ free -h```
 * Edit the hosts file
-<br/>For each VM, get your host static IP (should be on adapter enp0s8).
+<br/><br/>For each VM, get your host static IP (should be on adapter enp0s8).
 <br/>You can get the adapter info via net-tools
 ```
 $ ifconfig
