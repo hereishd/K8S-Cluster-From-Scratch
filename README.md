@@ -57,7 +57,7 @@ $ ifconfig
 ```
 &nbsp;Note the IP from enp0s8
 <br/><br/>
-&nbsp;Alternatively, you can get the IP from 
+&nbsp;Alternatively, you can get the IP from:
 ```
 ip addr show | grep enp0s8
 ```
@@ -66,10 +66,11 @@ ip addr show | grep enp0s8
 ```
 $ hostname
 ```
-* Edit the hosts file
+* Edit each VM's hosts file
 ```
 $ sudo nano /etc/hosts
 ```
+&nbsp;For every MV, add the IP and hostname of the other VMs it will communicate with.
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
