@@ -24,6 +24,13 @@ We first need to create our VMs: a VM for our Control Plane Node and one (or mor
 
 ## Ubuntu Setup
 
+* First add your user to sudo
+```
+$ su
+# usermod -aG sudo $USERNAME
+# reboot
+```
+
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
