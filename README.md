@@ -167,8 +167,19 @@ $ sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock
 $ export MASTER_IP=<your-master-node-static-IP>
 $ sudo kubeadm init --apiserver-advertise-address=$MASTER_IP --apiserver-cert-extra-sans=$MASTER_IP --pod-network-cidr=192.168.0.0/16 --cri-socket=unix:///var/run/crio/crio.sock --v=5
 ```
-&nbsp;*Don't forget to set the MASTER_IP on your master node's static IP*<br/>
+&nbsp;*Don't forget to set the MASTER_IP with your master node's static IP*<br/>
 &nbsp;*You can find a full list of options to pass to 'kubeadm init' and explainations [here](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/).*
+*I strongly recommand you to cpoy and save the output of the init command as it contains your join command infos.*
+* Setup you kube config file
+```
+$ mkdir -p $HOME/.kube
+$ sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+* Check the cluster status
+```
+$ kubectl cluster-info
+```
 ## Join the Worker Nodes (Worker Nodes Only)
 
 ## Set Kubelet Node IPs
