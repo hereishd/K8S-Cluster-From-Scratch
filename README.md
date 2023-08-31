@@ -50,7 +50,7 @@ $ sudo uwf disable
 $ swapoff -a
 $ sudo sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
 ```
-&tbsp;*You can confirm these settings are correct with:*```$ free -h```
+&nbsp;*You can confirm these settings are correct with:*```$ free -h```
 
 $ sudo swapoff -a
 
