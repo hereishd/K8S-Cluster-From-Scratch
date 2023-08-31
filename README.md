@@ -21,7 +21,7 @@ We first need to create our VMs: a VM for our Control Plane Node and one (or mor
 *I also recommend to check the 'Guest Additions' from the installation menu as it will allow us to enable the shared clipboard from host to guest.*
 
 ## Setup a Host-Only Network on Virtualbox
-* Go to VirtualBox's Network Manager
+* Go to VirtualBox's Network Manager<br/>
 ![Manager](img/VB_Network_Settings_Menu.png)
 ## Ubuntu Setup
 
