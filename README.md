@@ -164,7 +164,7 @@ $ sudo kubeadm config images pull --cri-socket /var/run/crio/crio.sock
 ```
 * Initiate the Master Node with Kubeadm
 ```
-$ export MASTER_IP=<your-master-node's-static-IP>
+$ export MASTER_IP=<your-master-node-static-IP>
 $ sudo kubeadm init --apiserver-advertise-address=$MASTER_IP --apiserver-cert-extra-sans=$MASTER_IP --pod-network-cidr=192.168.0.0/16 --cri-socket=unix:///var/run/crio/crio.sock --v=5
 ```
 &nbsp;*Don't forget to set the MASTER_IP on your master node's static IP*<br/>
