@@ -51,7 +51,16 @@ $ swapoff -a
 $ sudo sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
 ```
 &nbsp;*You can confirm these settings are correct with:*```$ free -h```
-
+* Edit the hosts file
+&nbsp;For each VM, get your host static IP (should be on adapter enp0s8).
+</br>&nbsp;You can get the adapter info via net-tools
+```
+$ ifconfig
+```
+&nbsp;Or you can get the ip from 
+ip addr show | grep enp0s8
+```
+&nbsp; *keep the IP (192.168.xxx.xxx) and takeout the range /24*
 ## Insatll Kubelet, Kubeadm, Kubectl
 
 ## Enable Kernel modules and configure systemctl
