@@ -32,13 +32,28 @@ $ helm version
 * Get the NGINX installation repository
 ```
 $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+$ helm repo update
 ```
 * Get the desired verison
 ```
 helm search repo ingress-nginx --versions
 ```
-*Refer to the supported versions table in [the official documentation](https://github.com/kubernetes/ingress-nginx/)*
-
+*Refer to the supported versions table in [the official documentation](https://github.com/kubernetes/ingress-nginx/) to select the version that matches your compatibility matrix.*
+* Set your desired version
+```
+$ export CHART_VERSION="<Adequate version from previous step>"
+```
+* Create the namespace
+```
+$ kubectl create namespace ingress-nginx
+```
+* Install the NGINX Controller from the Helm Repo
+```
+helm install ingress-nginx ingress-nginx \
+--repo https://kubernetes.github.io/ingress-nginx \
+--version ${CHART_VERSION} \
+--namespace ingress-nginx
+```
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
 * [minikube](https://kubernetes.github.io/ingress-nginx/deploy/#minikube)
