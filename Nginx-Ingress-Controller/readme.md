@@ -6,4 +6,4 @@ Before explaining what is an Ingress Controller, we have to understand an Ingres
 An Ingress in Kubernetes exposes HTTP and HTTPS routes from outside the cluster to services running within the cluster. All the traffic routing is controlled by rules defined on the Ingress resource. An Ingress may be configured to provide services with externally-reachable URLs / to load  balance traffic coming into cluster services / to terminate SSL TLS traffic / to provide name-based virtual hosting in Kubernetes.<br/>
 An Ingress controller is what fulfils the Ingress, usually with a load balancer.<br/>
 Below is an example on how an Ingress sends all the client traffic to a Service in Kubernetes Cluster.</br>
-<center>![Schema](../img/NGINX_Controller_design.png)</center>
+![Schema](../img/NGINX_Controller_design.png)
