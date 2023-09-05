@@ -19,4 +19,5 @@ For the standard HTTP and HTTPS traffic, an Ingress Controller will be configure
  * [AWS](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
  * [Azure](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
  * [GCE-GKE](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke)
-*If no above option is suitable for you, others are also available. Refer to the [documentation](https://kubernetes.github.io/ingress-nginx/deploy/).
+ <br/>
+*If no above option is suitable for you, others are also available. Refer to the [documentation](https://kubernetes.github.io/ingress-nginx/deploy/).*
