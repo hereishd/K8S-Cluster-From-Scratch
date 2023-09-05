@@ -16,7 +16,7 @@ With all these basics on Kubernetes Services and Ingress, we can now plunge into
 With this method you’ll manually download and run deployment manifests using kubectl command line tool.
 * With Helm:<br/>
 With this method, you'll be using the project repository chart.
-<br>The Helm method will be the method that I chose to use and explain here.
+<br/><br/>The Helm method will be the method that I chose to use and explain here.
 
 
 ## Additional Notes
