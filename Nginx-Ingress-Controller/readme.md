@@ -50,9 +50,9 @@ $ kubectl create namespace ingress-nginx
 * Install the NGINX Controller from the Helm Repo
 ```
 $ helm install ingress-nginx ingress-nginx \
---repo https://kubernetes.github.io/ingress-nginx \
---version ${CHART_VERSION} \
---namespace ingress-nginx
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --version ${CHART_VERSION} \
+  --namespace ingress-nginx
 ```
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
