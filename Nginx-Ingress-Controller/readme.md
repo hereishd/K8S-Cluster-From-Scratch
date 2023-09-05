@@ -12,13 +12,13 @@ For the standard HTTP and HTTPS traffic, an Ingress Controller will be configure
  You can choose from the [plenty of Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) available. Here, we will be using the [NGINX one](https://github.com/kubernetes/ingress-nginx/) from Kubernetes.
 
 
- ## Additional Notes
- The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
- * [minikube](https://kubernetes.github.io/ingress-nginx/deploy/#minikube)
- * [microk8s](https://kubernetes.github.io/ingress-nginx/deploy/#microk8s)
- * [AWS](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
- * [Azure](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
- * [GCE-GKE](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke)
- <br/>
+## Additional Notes
+The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
+* [minikube](https://kubernetes.github.io/ingress-nginx/deploy/#minikube)
+* [microk8s](https://kubernetes.github.io/ingress-nginx/deploy/#microk8s)
+* [AWS](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
+* [Azure](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
+* [GCE-GKE](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke)
+<br/>
 *If no above option is suitable for you, others are also available. Refer to the* 
 [documentation](https://kubernetes.github.io/ingress-nginx/deploy/)
