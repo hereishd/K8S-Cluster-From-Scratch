@@ -17,7 +17,17 @@ With this method you’ll manually download and run deployment manifests using k
 * With Helm:<br/>
 With this method, you'll be using the project repository chart.
 <br/><br/>The Helm method will be the method that I chose to use and explain here.
-
+## Install Helm
+First we will need to install Helm. This is very easy hence Helm now has an installer script that will automatically grab the latest version of Helm and install it locally for us.
+```
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
+You can validate the install by checking the version
+```
+$ helm version
+```
 
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
