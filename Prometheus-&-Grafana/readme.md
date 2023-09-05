@@ -26,7 +26,7 @@ kubectl create -f manifests/
 ```
 &nbsp; Give it few seconds and the pods should start coming online. This can be checked ```$ kubectl get pods -n monitoring -w```<br/>
 &nbsp; To check all the services created run ```$ kubectl get svc -n monitoring```
-* Access Prometheus, Grafana, and Alertmanager dashboards
+## Accessing Prometheus, Grafana, and Alertmanager dashboards
 We now have the monitoring stack deployed. There are two ways to access the dashboards of Grafana, Prometheus and Alertmanager:
   * Accessing Prometheus UI and Grafana dashboards using kubectl proxy
     grafana: ```$ kubectl --namespace monitoring port-forward svc/grafana 3000```, prometheus: ```kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090```, alertmanager: ```kubectl --namespace monitoring port-forward svc/alertmanager-main 9093```
