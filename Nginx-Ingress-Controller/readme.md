@@ -49,7 +49,7 @@ $ kubectl create namespace ingress-nginx
 ```
 * Install the NGINX Controller from the Helm Repo
 ```
-helm install ingress-nginx ingress-nginx \
+$ helm install ingress-nginx ingress-nginx \
 --repo https://kubernetes.github.io/ingress-nginx \
 --version ${CHART_VERSION} \
 --namespace ingress-nginx
