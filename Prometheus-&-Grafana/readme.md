@@ -1,4 +1,4 @@
-# Prometheus & Grafana
+# Setup Prometheus & Grafana
 
 This guide is created with the intention of guiding us to Setup Prometheus and Grafana on Kubernetes using prometheus-operator.<br/>
 Prometheus is a full fledged solution that enables access to advanced metrics capabilities in Kubernetes. The metrics are collected in a time interval of 30 seconds, this is a default settings. The information collected include resources such as Memory, CPU, Disk Performance and Network IO as well as R/W rates. By default the metrics are exposed on your cluster for up to a period of 14 days, but the settings can be adjusted to suit your environment.<br/>
