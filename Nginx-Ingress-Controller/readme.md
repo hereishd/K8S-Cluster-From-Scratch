@@ -59,11 +59,11 @@ $ helm install ingress-nginx ingress-nginx \
 $ kubectl get all --namespace ingress-nginx
 ```
 * Get the Chart Values file (Optional)
-In case you would like to change some values from the origina chart before or after deploying it, you can save the value file.
+<br/>In case you would like to change some values from the origina chart before or after deploying it, you can save the value file.
 ```
 $ helm show values ingress-nginx --repo https://kubernetes.github.io/ingress-nginx > ingress-values.yaml
 ```
-Then, after making the desired changes to it you can pass it your deployment
+Then, after making the desired changes to it, you can pass it to your deployment
 ```
 $ helm upgrade -i -n ingress-nginx ingress-nginx --values ./ingress-values.yaml .
 ```
