@@ -63,7 +63,7 @@ $ kubectl get all --namespace ingress-nginx
 ```
 $ helm show values ingress-nginx --repo https://kubernetes.github.io/ingress-nginx > ingress-values.yaml
 ```
-Then, after making the desired changes to it, you can pass it to your deployment
+&nbsp;Then, after making the desired changes to it, you can pass it to your deployment
 ```
 $ helm upgrade -i -n ingress-nginx ingress-nginx --values ./ingress-values.yaml .
 ```
