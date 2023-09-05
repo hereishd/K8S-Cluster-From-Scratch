@@ -28,6 +28,16 @@ You can validate the install by checking the version
 ```
 $ helm version
 ```
+## Deploying the NGINX Controller
+* Get the NGINX installation repository
+```
+$ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+```
+* Get the desired verison
+```
+helm search repo ingress-nginx --versions
+```
+*Refer to the supported versions table in [the official documentation](https://github.com/kubernetes/ingress-nginx/)*
 
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
