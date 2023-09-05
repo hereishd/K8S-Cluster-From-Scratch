@@ -34,7 +34,9 @@ sudo kubeadm join \
   --discovery-token-ca-cert-hash sha256:$CA_CERT_HASH
 ```
 <br/>
-In case you don't have your Kubernetes API Server Advertise Address, you can always get it from the cluster info:
+In case you don't have your Kubernetes API Server Advertise Address, you can always get it from the cluster info
+
 ```
 $ kubectl cluster-info
 ```
+
