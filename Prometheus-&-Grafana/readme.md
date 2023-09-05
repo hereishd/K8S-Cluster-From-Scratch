@@ -30,7 +30,7 @@ kubectl create -f manifests/
 We now have the monitoring stack deployed. There are two ways to access the dashboards of Grafana, Prometheus and Alertmanager:
   * Accessing Prometheus UI and Grafana dashboards using kubectl proxy
     grafana: ```$ kubectl --namespace monitoring port-forward svc/grafana 3000```, prometheus: ```kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090```, alertmanager: ```kubectl --namespace monitoring port-forward svc/alertmanager-main 9093```
-    *The default grafana credentials are admin/admin*
+    <br/>*The default grafana credentials are admin/admin*
   * Accessing Prometheus UI and Grafana dashboard using NodePort / LoadBalancer
     To access Prometheus, Grafana, and Alertmanager dashboards using one of the worker nodes IP address and a port you’ve to edit the services and set the type to NodePort.
     You need a Load Balancer implementation in your cluster to use service type LoadBalancer
