@@ -25,9 +25,9 @@ $ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outf
 ```
 $ kubectl cluster-info
 ```
-* Join some new Kubernetes Worker Node to your Cluster
+## Joining some new Kubernetes Worker Node to your Cluster
 
-The kubeadm join command is used to bootstrap a Kubernetes worker node or an additional control plane node, and join it to the cluster. The command syntax for joining a worker node to cluster.
+The kubeadm 'join' command is used to bootstrap a Kubernetes worker node or an additional control plane node, and join it to the cluster. The command syntax for joining a worker node to cluster.
 <br/>
 The common flags required are ```--token``` and ```--discovery-token-ca-cert-hash```
 <br/>So our complete join command will have the format:
