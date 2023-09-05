@@ -19,5 +19,5 @@ The deployment process varies depending on your Kubernetes setup. My Kubernetes 
 * [AWS](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
 * [Azure](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
 * [GCE-GKE](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke)
-<br/>
+
 If no above option is suitable for you, others are also available. Refer to the [official documentation](https://kubernetes.github.io/ingress-nginx/deploy/).
