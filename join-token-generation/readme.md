@@ -17,7 +17,7 @@ $ sudo kubeadm token create
 ```
 $ kubeadm token list
 ```
-* Get Discovery Token CA cert Hash (from Master node)
+## Get the Discovery Token CA cert Hash (from Master node)
 ```
 $ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
