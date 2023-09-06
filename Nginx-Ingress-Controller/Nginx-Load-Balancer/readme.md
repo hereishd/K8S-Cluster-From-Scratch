@@ -83,3 +83,56 @@ clusters:
 ```
 
 ## Option 2: Setting up NGINX in a docker image  
+* Install Docker
+```
+$ sudo apt update
+$ sudo apt install docker.io
+$ sudo systemctl enable docker
+$ sudo usermod -aG docker $USERNAME
+$ reboot
+```
+You can validate the install with:
+```
+$ sudo systemctl status docker
+```
+* Install and configure NGINX
+```
+$ docker pull nginx
+$ sudo tee ./Dockerfile <<EOF
+FROM nginx:alpine
+COPY ./nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+EOF
+$ sudo tee ./nginx.conf <<EOF
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+	worker_connections 768;
+	# multi_accept on;
+}
+stream { 
+  upstream k8s { 
+    server 192.168.XXX.XXX:6443; 
+  } 
+  server { 
+    listen 6443; 
+    proxy_pass k8s; 
+  } 
+}
+```
+**Upstream** defines the target server you will be accessing in your Kubernetes clusters and the ports</br>
+**server** defines the port on your local Nginx host that is listening on a specific port<br/>
+**proxy_pass** tells Nginx that you will be passing this traffic to the upstream servers you have configured<br/>
+*In case you need to to load balance the API access to multiple master nodes, simply add the othe master nodes IP under the first ip in the 'upstream k8s'.*
+* Build the docker image
+```
+$ docker build -t nginx-loadbalancer .
+```
+* Run the image with our config
+```
+$ docker run -p 8080:80 nginx-loadbalancer:latest
+```
