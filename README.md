@@ -224,5 +224,5 @@ $ kubectl get nodes -o wide
 * [Creating a cluster with kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
 
 ## Further Notes
-I recommand taking a snapshot of you initial nodes. This will allow you to recover your initial cluster state at all time.
+I recommend taking a snapshot of your initial nodes. This will allow you to recover your initial cluster state at all time.
 <br/>I also recommend setting up an additional VM to use to operate the cluster.
