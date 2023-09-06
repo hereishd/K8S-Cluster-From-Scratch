@@ -65,8 +65,13 @@ $ helm show values ingress-nginx --repo https://kubernetes.github.io/ingress-ngi
 ```
 &nbsp;Then, after making the desired changes to it, you can pass it to your deployment
 ```
-$ helm upgrade -i -n ingress-nginx ingress-nginx --values ./ingress-values.yaml .
+$ helm upgrade -i ingress-nginx -n ingress-nginx ingress-nginx -f ingress-values.yaml --repo https://kubernetes.github.io/ingress-nginx
 ```
+## Configure the NGINX Ingress Controller
+Now that we have the Ingress Controller installed, we need to configure an external connectivity method. For this we have two major options:
+* Using a Load Balancer (Highly recommended)
+* Using Specific Nodes to run Nginx Ingress Pods (NOT recommended)<br/>
+This is not recommended implementation and I will possibly document it in the future to serve as reference documentation.
 
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
