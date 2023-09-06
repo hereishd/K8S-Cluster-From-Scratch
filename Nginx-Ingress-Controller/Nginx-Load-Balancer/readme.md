@@ -136,3 +136,10 @@ $ docker build -t nginx-loadbalancer .
 ```
 $ docker run -p 8080:80 nginx-loadbalancer:latest
 ```
+Alternatively, we can do it without the Dockerfile and building the image by passing our config file directly to the args when running our NGINX container. In this case our command will look like this:
+```
+$ docker run -p 8080:80 -v ./nginx.conf:/etc/nginx/nginx.conf nginx:alpine
+```
+
+## Additional Notes
+The NGINX load Balancer has been set, in case you we following the Nginx Ingress Controller setup, you can get [back to it](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller).
