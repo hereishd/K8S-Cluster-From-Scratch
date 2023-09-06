@@ -65,5 +65,21 @@ stream {
 **server** defines the port on your local Nginx host that is listening on a specific port<br/>
 **proxy_pass** tells Nginx that you will be passing this traffic to the upstream servers you have configured<br/>
 *In case you need to to load balance the API access to multiple master nodes, simply add the othe master nodes IP under the first ip in the 'upstream k8s'.*
+* Now that we have the configuration in place, we need to restart nginx:
+```
+$ sudo systemctl restart nginx
+```
+* Test load balancer's configuration ()
+Since I will be using the connection to the Kubernetes API as a test of the load balancer, we need to point the kubeconfig file to the IP of the load balancer. To do this, edit your Kube config file to point to our load balancer instead of the K8s master(s). Below, the server: https://10.1.149.103:6443 is the IP of my Nginx load balancer. 
+```
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: 
+    ...
+     server: https://10.1.49.103:6443
+  name: k8svbox
+  ...
+```
 
 ## Option 2: Setting up NGINX in a docker image  
