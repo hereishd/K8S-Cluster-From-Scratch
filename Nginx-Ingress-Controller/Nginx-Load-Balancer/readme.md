@@ -47,5 +47,23 @@ events {
 
 ...
 ```
+Here, you You will want to comment out the lines below the “events” (adding # at the beggining of each) or simply delete them.
+* Add the load balance configuration
+As an example of a simple way to load balance the API access to a master node, you can add the following code in the nginx.conf under the events section.
+```
+stream { 
+  upstream k8s { 
+    server 192.168.XXX.XXX:6443; 
+  } 
+  server { 
+    listen 6443; 
+    proxy_pass k8s; 
+  } 
+}
+```
+**Upstream** defines the target servers you will be accessing in your Kubernetes clusters and the ports</br>
+**server** defines the port on your local Nginx host that is listening on a specific port<br/>
+**proxy_pass** tells Nginx that you will be passing this traffic to the upstream servers you have configured
+
 
 ## Option 2: Setting up NGINX in a docker image  
