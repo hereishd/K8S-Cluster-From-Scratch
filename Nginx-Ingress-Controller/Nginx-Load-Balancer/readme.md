@@ -63,7 +63,7 @@ stream {
 ```
 **Upstream** defines the target server you will be accessing in your Kubernetes clusters and the ports</br>
 **server** defines the port on your local Nginx host that is listening on a specific port<br/>
-**proxy_pass** tells Nginx that you will be passing this traffic to the upstream servers you have configured
+**proxy_pass** tells Nginx that you will be passing this traffic to the upstream servers you have configured<br/>
 *In case you need to to load balance the API access to multiple master nodes, simply add the othe master nodes IP under the first ip in the 'upstream k8s'.*
 
 ## Option 2: Setting up NGINX in a docker image  
