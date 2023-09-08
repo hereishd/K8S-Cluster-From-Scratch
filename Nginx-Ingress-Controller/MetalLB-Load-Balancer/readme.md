@@ -52,3 +52,4 @@ Let’s create a file with configurations for the IPs that MetalLB uses to assig
         addresses:
         - 172.18.1.1-172.18.1.16
   ```
+  *Note that for the addresses at the bottom of the file, we need to set a range of IP addresses that are available on our system for MetalLb to hand out to our services*
