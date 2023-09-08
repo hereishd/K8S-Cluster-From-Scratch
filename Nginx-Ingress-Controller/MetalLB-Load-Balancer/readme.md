@@ -33,7 +33,7 @@ $ kubectl get all -n metallb-system
 ```
 ## Setting up the the configs
 The installation manifest does not include a configuration file required to use MetalLB. All MetalLB components are started, but will remain in idle state until you finish the necessary configurations. 
-* Create Load Balancer services Pool of IP Addresses
+* Create Load Balancer services Pool of IP Addresses<br/>
 MetalLB needs a pool of IP addresses to assign to the services when it gets such request. We have to instruct MetalLB to do so via the IPAddressPool CR.<br/>
 Let’s create a file with configurations for the IPs that MetalLB uses to assign IPs to services.<br/>
   * Create a metallb-config.yaml file
