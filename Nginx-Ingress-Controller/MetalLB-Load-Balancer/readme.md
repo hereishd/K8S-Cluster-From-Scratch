@@ -65,3 +65,5 @@ To verify that your installation was a success check the ingress-controller serv
 $ kubectl get svc -n ingress-nginx
 ```
 You should now see that your ingress controller's LoadBalancer EXTERNAL-IP has been assigned.
+<br/><br/>
+You can now go back to finish the your [Ingress Controller Setup](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller)
