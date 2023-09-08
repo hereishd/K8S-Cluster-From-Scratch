@@ -60,6 +60,7 @@ Let’s create a file with configurations for the IPs that MetalLB uses to assig
     $ kubectl apply -f metallb-config.yaml
     ```
 ## Verify your installation
+To verify that your installation was a success check the ingress-controller service
 ```
 $ kubectl get svc -n ingress-nginx
 ```
