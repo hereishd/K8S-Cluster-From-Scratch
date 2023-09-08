@@ -7,29 +7,31 @@ MetalLB is a pure software solution that provides a network load-balancer implem
 * A cluster network configuration that can coexist with MetalLB.
 * Availability of IPv4 addresses that MetalLB will assign to LoadBalancer services when requested.
 
+## Preparation
+If you’re using kube-proxy in IPVS mode, since Kubernetes v1.14.2 you have to enable strict ARP mode.<br/>
+*Note, you don’t need this if you’re using kube-router as service-proxy because it is enabling strict ARP by default.*<br/><br/>
+
+You can achieve this by editing kube-proxy config in current cluster:
+```
+$ kubectl edit configmap -n kube-system kube-proxy
+```
+and set:
+```
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+kind: KubeProxyConfiguration
+mode: "ipvs"
+ipvs:
+  strictARP: true
+```
 ## Deploy MetalLB Load Balancer
 * Update system
 ```
 $sudo apt update
 ```
-* Get the latest MetalLB release tag
-```
-$ MetalLB_RTAG=$(curl -s https://api.github.com/repos/metallb/metallb/releases/latest|grep tag_name|cut -d '"' -f 4|sed 's/v//')
-```
-* Create a directory and download the manifest
-```
-$ mkdir metallb
-$ cd metallb
-$ wget https://raw.githubusercontent.com/metallb/metallb/v$MetalLB_RTAG/config/manifests/metallb-native.yaml
-```
-* Install MetalLB Load Balancer
-Deploy MetalLB to your Kubernetes cluster, under the metallb-system namespace.
-```
-$ kubectl apply -f metallb-native.yaml
-```
-Wait till everythis is running.
-```
-$ kubectl get all -n metallb-system
+* Install MeltalLb
+``
+$ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 ```
 ## Setting up the the configs
 The installation manifest does not include a configuration file required to use MetalLB. All MetalLB components are started, but will remain in idle state until you finish the necessary configurations. 
@@ -53,3 +55,7 @@ Let’s create a file with configurations for the IPs that MetalLB uses to assig
         - 172.18.1.1-172.18.1.16
   ```
   *Note that for the addresses at the bottom of the file, we need to set a range of IP addresses that are available on our system for MetalLb to hand out to our services*
+    * Create the Configmap
+    ```
+    $ kubectl apply -f metallb-config.yaml
+    ```
