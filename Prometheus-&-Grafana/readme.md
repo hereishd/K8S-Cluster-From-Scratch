@@ -63,4 +63,5 @@ We now have the monitoring stack deployed. There are two ways to access the dash
     *If you would like more info on installing a LoadBalancer to your cluster, you can always check my documentation on [deploying MetalLB as LoadBalancer in your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/MetalLB-Load-Balancer).*
 ## Storing data in Persistent volume (Optional)
 By default, the operator configures Pods to store data on emptyDir volumes which aren’t persisted when the Pods are redeployed. To maintain data across deployments and version upgrades, you can configure persistent storage for Prometheus, Alertmanager and ThanosRuler resources.<br/>
-// TODO: Document method.
+
+<br/>// TODO: Document this method eventualy.
