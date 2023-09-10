@@ -44,7 +44,7 @@ $ sudo apt install net-tools
 ```
 * Disable firewall
 ```
-$ sudo uwf disable
+$ sudo ufw disable
 ```
 * Disable swap
 ```
