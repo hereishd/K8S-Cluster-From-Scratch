@@ -63,9 +63,9 @@ If you now take a look at your Ingress Controller service
 ```
 $ kubectl get svc -n ingress-nginx
 ```
-You will realise that the EXTERNAL_IP of this service is pending, for the matter, not assigned.<br/>
+You will realise that the EXTERNAL_IP of this service is pending.<br/>
 ![Pending](../img/external-ip-pending.png)<br/>
-This is because we do not have a LoadBalancer in our cluster.<br/><br/>
+This means not assigned. The reason being we do not have a LoadBalancer in our cluster. So let's fix this.<br/><br/>
 
 When you deploy Kubernetes Cluster in a Public Cloud environment, the network load balancers are available on-demand. The same is not true for clusters deployed in private cloud environment or any kind of on-prem Infrastructure. In this kind of setups it’s the responsibility of System Administrators / Network Engineers to integrate Kubernetes Cluster with any Load balancer(s) in place.<br/>
 A Load balancer is responsible for the provision of a single IP address to route incoming requests to the application. For you to successfully create Kubernetes services of type LoadBalancer, a load balancer implementation available for Kubernetes is required.<br/>
