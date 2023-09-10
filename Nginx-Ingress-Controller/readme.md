@@ -12,11 +12,12 @@ For the standard HTTP and HTTPS traffic, an Ingress Controller will be configure
  You can choose from the [plenty of Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) available. Here, we will be using the [NGINX one from Kubernetes](https://github.com/kubernetes/ingress-nginx/).
 ## Before you begin
 With all these basics on Kubernetes Services and Ingress, we can now plunge into the actual installation of NGINX Ingress Controller Kubernetes. There are 2 major deployment options:
-* Without Helm:</br>
-With this method you’ll manually download and run deployment manifests using kubectl command line tool.
-* With Helm:<br/>
-With this method, you'll be using the project repository chart.
-<br/><br/>The Helm method will be the method that I chose to use and explain here. If you do not have Helm installed, you will need to install it. For this, you can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or the documentation from the [original Helm website](https://helm.sh/docs/intro/install/).
+* Without Helm: 
+Using this method, you’ll manually download and run deployment manifests using kubectl command line tool.
+* With Helm:
+Using this method, you'll be using the project repository charts.
+<br/><br/>The Helm method will be the method that I chose to use and explain here.<br/>
+If you do not have Helm installed, you will need to install it. For this, you can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or the documentation from the [original Helm website](https://helm.sh/docs/intro/install/).
 ## Deploying the NGINX Controller
 * Get the NGINX installation repository
 ```
