@@ -68,10 +68,10 @@ This is not a recommended implementation and I will possibly document it in the 
 <br/><br/>
 So here, we are going to make use of the Load Balancer. The Load balancer is used to expose an application running in Kubernetes cluster to the external network. It provides a single IP address to route incoming requests to Ingress controller application. In order to successfully create Kubernetes services of type LoadBalancer, you need to have the load balancer implementation inside / or outside Kubernetes.<br/>
 When a service is deployed in cloud environment, Load Balancer will be available to your service by default. Ingress service should get the LB IP address automatically. But for Baremetal installations you’ll need to deploy a Load Balancer implementation for Kubernetes. I have found multiple articles recommending to use MetalLB as internal Load Balancer for a Bare Metal cluster installation.<br/><br/>
-Here, you can find my doc explaining how to install and use MetalLB.
+Here, you can find my doc explaining how to install and use MetalLB as internal LoadBalancer.
 * [Deploying MetalLB as internal Load Balancer](MetalLB-Load-Balancer/readme.md)
 <br/><br/>
-Later on, I will be documenting a method for implementing an external LoadBalncer using NGINX.
+Later on, I will be documenting a method for implementing an external LoadBalancer using NGINX.
 * [Deploy NGINX as external Load Balancer](Nginx-Load-Balancer/readme.md)
 ## Set NGINX Ingress to use NGINX Load Balancer
 * Check the NGINX Ingress Service
