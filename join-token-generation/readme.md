@@ -41,5 +41,5 @@ $ kubectl cluster-info
 ```
 
 ## Additional Notes
-If, like me, you are setting up your nodes on VMs as part as your home lab, do not forget to add the ```--node-ip=192.168.XXX.XXX``` flag to your KUBELET_CONFIG_ARGS in the config file ```/etc/systemd/system/kubelet.service.d/10-kubeadm.conf``` as explained in my [K*S Cluster From Scratch doc](https://github.com/hereishd/K8S-From-Scratch/tree/main).
+If, like me, you are setting up your nodes on VMs as part as your home lab, do not forget to add the ```--node-ip=192.168.XXX.XXX``` flag to your KUBELET_CONFIG_ARGS in the config file ```/etc/systemd/system/kubelet.service.d/10-kubeadm.conf``` as explained in my [K8S Cluster From Scratch doc](https://github.com/hereishd/K8S-From-Scratch/tree/main).
 
