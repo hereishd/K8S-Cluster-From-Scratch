@@ -64,5 +64,5 @@ We now have the monitoring stack deployed. There are two ways to access the dash
     *The Node Port method is only recommended for local clusters not exposed to the internet. The basic reason for this is insecurity of Prometheus/Alertmanager services.*
     // TODO: Explain this step.
 ## Storing data in Persistent volume (Optional)
-By default, the operator configures Pods to store data on emptyDir volumes which aren’t persisted when the Pods are redeployed. To maintain data across deployments and version upgrades, you can configure persistent storage for Prometheus, Alertmanager and ThanosRuler resources.
+By default, the operator configures Pods to store data on emptyDir volumes which aren’t persisted when the Pods are redeployed. To maintain data across deployments and version upgrades, you can configure persistent storage for Prometheus, Alertmanager and ThanosRuler resources.<br/>
 // TODO: Document method.
