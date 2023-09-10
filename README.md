@@ -232,4 +232,4 @@ Now that our cluster is setup. There are a few things I recommend to setup so th
 * [Setup Prometheus & Grafana](https://github.com/hereishd/K8S-From-Scratch/tree/main/Prometheus-%26-Grafana)  to monitor your cluster
 * [Setup NGINX Ingress Controller](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller) to manage your Ingress.
 <br/><br/>
-If you do not want to install an ingress controller but simply intall a LoadBalancer in your cluster, you can follow my documentation on [deploying MetalLB as LoadBalancer in your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/MetalLB-Load-Balancer).
+If you do not want to install an Ingress Controller but simply install a LoadBalancer in your cluster, you can follow my documentation on [deploying MetalLB as LoadBalancer in your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/MetalLB-Load-Balancer).
