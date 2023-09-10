@@ -64,4 +64,5 @@ We now have the monitoring stack deployed. There are two ways to access the dash
 ## Storing data in Persistent volume (Optional)
 By default, the operator configures Pods to store data on emptyDir volumes which aren’t persisted when the Pods are redeployed. To maintain data across deployments and version upgrades, you can configure persistent storage for Prometheus, Alertmanager and ThanosRuler resources.<br/>
 
-<br/>// TODO: Document this method eventualy.
+## Additional Notes
+Please note that I will be documenting the section on storing data in a persistent volume eventually. In the meantime, you can refer to [the prometheus official documentation](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md).
