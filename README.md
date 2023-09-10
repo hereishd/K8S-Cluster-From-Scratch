@@ -229,5 +229,7 @@ I recommend taking a snapshot of your initial nodes. This will allow you to reco
 
 ## Further Steps
 Now that our cluster is setup. There are a few things I recommend to setup so that the cluster will have some basic usefull addon functionalities. Feel free to read my doc and steps to install them.
-* [Setup Prometheus & Grafana to monitor your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Prometheus-%26-Grafana)
-* 
+* [Setup Prometheus & Grafana](https://github.com/hereishd/K8S-From-Scratch/tree/main/Prometheus-%26-Grafana)  to monitor your cluster
+* [Setup NGINX Ingress Controller](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller) to manage your Ingress.
+<br/><br/>
+If you do not want to install an ingress controller but simply intall a LoadBalancer in your cluster, you can follow my documentation on [deploying MetalLB as LoadBalancer in your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/MetalLB-Load-Balancer).
