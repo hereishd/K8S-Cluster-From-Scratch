@@ -97,10 +97,10 @@ $ sudo modprobe br_netfilter
 * Configure sysctl
 ```
 $ sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
-  net.bridge.bridge-nf-call-ip6tables = 1
-  net.bridge.bridge-nf-call-iptables = 1
-  net.ipv4.ip_forward = 1
-  EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF
 ```
 * Reload sysctl
 ```
@@ -110,9 +110,9 @@ $ sudo sysctl --system
 * Configure the persistent loading of modules
 ```
 $ sudo tee /etc/modules-load.d/k8s.conf <<EOF
-  overlay
-  br_netfilter
-  EOF
+overlay
+br_netfilter
+EOF
 ```
 * Ensure you load modules
 ```
@@ -122,10 +122,10 @@ $ sudo modprobe br_netfilter
 * Set up required sysctl params
 ```
 $ sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
-  net.bridge.bridge-nf-call-ip6tables = 1
-  net.bridge.bridge-nf-call-iptables = 1
-  net.ipv4.ip_forward = 1
-  EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF
 ```
 * Reload sysctl
 ```
@@ -197,7 +197,7 @@ kubeadm join 192.168.XXX.XXX:6443 --token 0mtvva.1snrqiu4snaivpoi \
 kubeadm join 192.168.XXX.XXX:6443 --token 0mtvva.1snrqiu4snaivpoi \
   --discovery-token-ca-cert-hash sha256:be9e86388bbeffeae73dd6f27375dbb5b25a33e8a316dfa8a4a4839b357360b6
 ```
-&nbsp;*Note that the token expires within 24h. To add more nodes in the future you will need to generate new tokens.*
+&nbsp;*Note that the token expires within 24h. To add more nodes in the future you will need to [generate new tokens](https://github.com/hereishd/K8S-From-Scratch/tree/main/join-token-generation).*
 ## Set Kubelet Node IPs
 The setup is now almost done. If you go back to the master node and check the cluster info : ```$ kubectl get node``` you will see all your nodes and they should be in a Ready state.
 <br/>
@@ -223,6 +223,11 @@ $ kubectl get nodes -o wide
 * [Install CRI-O](https://github.com/cri-o/cri-o/blob/main/install.md#readme)
 * [Creating a cluster with kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
 
-## Further Notes
+## Additional Notes
 I recommend taking a snapshot of your initial nodes. This will allow you to recover your initial cluster state at all time.
 <br/>I also recommend setting up an additional VM to use to operate the cluster.
+
+## Further Steps
+Now that our cluster is setup. There are a few things I recommend to setup so that the cluster will have some basic usefull addon functionalities. Feel free to read my doc and steps to install them.
+* [Setup Prometheus & Grafana to monitor your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Prometheus-%26-Grafana)
+* 
