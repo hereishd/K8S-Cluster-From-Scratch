@@ -50,8 +50,6 @@ $ kubectl --namespace monitoring get pods -l "release=prometheus"
 ```
 *Please note that for this method, you will need Helm installed. You can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or from the [original Helm website](https://helm.sh/docs/intro/install/).*
 
-## Checking your installation
-
 
 ## Accessing Prometheus, Grafana, and Alertmanager dashboards
 We now have the monitoring stack deployed. There are two ways to access the dashboards of Grafana, Prometheus and Alertmanager:
@@ -59,10 +57,10 @@ We now have the monitoring stack deployed. There are two ways to access the dash
     grafana: ```$ kubectl --namespace monitoring port-forward svc/grafana 3000```, prometheus: ```kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090```, alertmanager: ```kubectl --namespace monitoring port-forward svc/alertmanager-main 9093```
     <br/>*The default grafana credentials are admin/admin*
   * Accessing Prometheus UI and Grafana dashboard using NodePort / LoadBalancer:<br/>
-    To access Prometheus, Grafana, and Alertmanager dashboards using one of the worker nodes IP address and a port you’ve to edit the services and set the type to NodePort.
-    You need a Load Balancer implementation in your cluster to use service type LoadBalancer
-    *The Node Port method is only recommended for local clusters not exposed to the internet. The basic reason for this is insecurity of Prometheus/Alertmanager services.*
-    // TODO: Explain this step.
+    To access Prometheus, Grafana, and Alertmanager dashboards using one of the worker nodes IP address and a port you haveve to edit the services and set the type to NodePort.<br/>
+    You need a Load Balancer implementation in your cluster to use services of type LoadBalancer
+    *The Node Port method is only recommended for local clusters not exposed to the internet. The basic reason for this is insecurity of Prometheus/Alertmanager services.*<br/>
+    *If you would like more info on installing a LoadBalancer to your cluster, you can always check my documentation on [deploying MetalLB as LoadBalancer in your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/MetalLB-Load-Balancer).*
 ## Storing data in Persistent volume (Optional)
 By default, the operator configures Pods to store data on emptyDir volumes which aren’t persisted when the Pods are redeployed. To maintain data across deployments and version upgrades, you can configure persistent storage for Prometheus, Alertmanager and ThanosRuler resources.<br/>
 // TODO: Document method.
