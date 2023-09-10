@@ -58,7 +58,7 @@ $ helm show values ingress-nginx --repo https://kubernetes.github.io/ingress-ngi
 ```
 $ helm upgrade -i ingress-nginx -n ingress-nginx ingress-nginx -f ingress-values.yaml --repo https://kubernetes.github.io/ingress-nginx
 ```
-<br/>
+
 ## Configure the NGINX Ingress Controller
 If you now take a look at your Ingress Controller service
 ```
