@@ -5,8 +5,10 @@ Prometheus is a full fledged solution that enables access to advanced metrics ca
 Grafana is used for analytics and interactive visualization of metrics that’s collected and stored in Prometheus database. You can create custom charts, graphs, and alerts for Kubernetes cluster, with Prometheus being data source. In this guide we will perform installation of both Prometheus and Grafana on a Kubernetes Cluster. For this setup kubectl configuration is required, with Cluster Admin role binding.<br/>
 <br/>
 To get a complete an entire monitoring stack we will use kube-prometheus project which includes Prometheus Operator among its components. The kube-prometheus stack is meant for cluster monitoring and is pre-configured to collect metrics from all Kubernetes components, with a default set of dashboards and alerting rules.
+<br/>
+I will be documenting 2 methods here, the methos to deploy the stack using the manifest files and the method using Helm. After the 2 metods are explained, the rest of the operations remain the same.
 
-## Deploy Prometheus / Grafana Monitoring Stack on Kubernetes
+## Method 1: Deploy Prometheus / Grafana Monitoring Stack on Kubernetes using the manifest
 
 * Clone the kube-prometheus project
 ```
@@ -24,8 +26,33 @@ $ kubectl create -f manifests/setup
 ```
 kubectl create -f manifests/
 ```
+* Check your installation
 &nbsp; Give it few seconds and the pods should start coming online. This can be checked ```$ kubectl get pods -n monitoring -w```<br/>
 &nbsp; To check all the services created run ```$ kubectl get svc -n monitoring```
+
+## Method 2: Deploy Prometheus / Grafana Monitoring Stack on Kubernetes using Helm Charts
+* Get the Helm Repository
+```
+$ helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+$ helm repo update
+```
+* Create a monitoring namespace
+```
+$ kubectl create ns monitoring
+```
+* Installing the stack in our namespace
+```
+$ helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring
+```
+* Checking your installation
+```
+$ kubectl --namespace monitoring get pods -l "release=prometheus"
+```
+*Please note that for this method, you will need Helm installed. You can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or from the [original Helm website](https://helm.sh/docs/intro/install/).*
+
+## Checking your installation
+
+
 ## Accessing Prometheus, Grafana, and Alertmanager dashboards
 We now have the monitoring stack deployed. There are two ways to access the dashboards of Grafana, Prometheus and Alertmanager:
   * Accessing Prometheus UI and Grafana dashboards using kubectl proxy:<br/>

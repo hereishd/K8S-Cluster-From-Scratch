@@ -68,7 +68,9 @@ $ helm show values ingress-nginx --repo https://kubernetes.github.io/ingress-ngi
 $ helm upgrade -i ingress-nginx -n ingress-nginx ingress-nginx -f ingress-values.yaml --repo https://kubernetes.github.io/ingress-nginx
 ```
 ## Configure the NGINX Ingress Controller
-Now that we have the Ingress Controller installed, we need to configure an external connectivity method. For this we have two major options:
+When you deploy Kubernetes Cluster in a Public Cloud environment, the network load balancers are available on-demand. The same is not true for clusters deployed in private cloud environment or any kind of on-prem Infrastructure. In this kind of setups it’s the responsibility of System Administrators / Network Engineers to integrate Kubernetes Cluster with any Load balancer(s) in place.<br/>
+A Load balancer is responsible for the provision of a single IP address to route incoming requests to the application. For you to successfully create Kubernetes services of type LoadBalancer, a load balancer implementation available for Kubernetes is required.<br/>
+Note that for the external connectivity method, we have two major options:
 * Using a Load Balancer (Highly recommended)
 * Using Specific Nodes to run Nginx Ingress Pods (NOT recommended)<br/>
 This is not a recommended implementation and I will possibly document it in the future to serve as reference documentation.
@@ -82,11 +84,15 @@ When a service is deployed in cloud environment, Load Balancer will be available
 ```
 $ kubectl get svc -n ingress-nginx
 ```
-* Patch the ingress-nginx-controller service by settiung it's type to LoadBalancer
+* Patch the ingress-nginx-controller service by setting it's type to LoadBalancer
 In case your ingress-controller service is of type NodePort, you need to set it to LoadBalancer.
 ```
 $ kubectl -n ingress-nginx patch svc ingress-nginx-controller --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
 ```
+
+## Mapping DNS name for Nginx Ingresses to LB IP
+
+## Deploy Services to test Nginx Ingress functionality 
 
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
