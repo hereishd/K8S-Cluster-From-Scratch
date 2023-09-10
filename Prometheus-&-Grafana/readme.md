@@ -58,7 +58,7 @@ We now have the monitoring stack deployed. There are two ways to access the dash
     <br/>*The default grafana credentials are admin/admin*
   * Accessing Prometheus UI and Grafana dashboard using NodePort / LoadBalancer:<br/>
     To access Prometheus, Grafana, and Alertmanager dashboards using one of the worker nodes IP address and a port you haveve to edit the services and set the type to NodePort.<br/>
-    You need a Load Balancer implementation in your cluster to use services of type LoadBalancer
+    You need a Load Balancer implementation in your cluster to use services of type LoadBalancer.<br/><br/>
     *The Node Port method is only recommended for local clusters not exposed to the internet. The basic reason for this is insecurity of Prometheus/Alertmanager services.*<br/>
     *If you would like more info on installing a LoadBalancer to your cluster, you can always check my documentation on [deploying MetalLB as LoadBalancer in your cluster](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/MetalLB-Load-Balancer).*
 ## Storing data in Persistent volume (Optional)
