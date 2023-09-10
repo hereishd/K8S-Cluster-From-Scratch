@@ -16,8 +16,9 @@ With all these basics on Kubernetes Services and Ingress, we can now plunge into
 Using this method, you’ll manually download and run deployment manifests using kubectl command line tool.
 * With Helm:
 Using this method, you'll be using the project repository charts.
-<br/><br/>The Helm method will be the method that I chose to use and explain here.<br/>
-If you do not have Helm installed, you will need to install it. For this, you can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or the documentation from the [original Helm website](https://helm.sh/docs/intro/install/).
+<br/><br/>The Helm method will be the method that I chose to use and explain here.<br/><br/>
+If you do not have Helm installed, you will need to install it.<br/> 
+For this, you can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or the documentation from the [original Helm website](https://helm.sh/docs/intro/install/).
 ## Deploying the NGINX Controller
 * Get the NGINX installation repository
 ```
