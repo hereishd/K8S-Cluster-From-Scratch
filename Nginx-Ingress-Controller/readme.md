@@ -106,3 +106,7 @@ The deployment process varies depending on your Kubernetes setup. My Kubernetes 
 * [GCE-GKE](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke)
 
 If no above option is suitable for you, others are also available. Refer to the [official documentation](https://kubernetes.github.io/ingress-nginx/deploy/).
+
+
+
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission******************************************
