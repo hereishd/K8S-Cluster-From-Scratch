@@ -96,7 +96,9 @@ $ kubectl -n ingress-nginx patch svc ingress-nginx-controller --type='json' -p '
 ## Mapping DNS name for Nginx Ingresses to LB IP
 
 ## Deploy Services to test Nginx Ingress functionality 
-
+It is now time to deploy a sample webapp and create an Ingress Resource to test our setup.<br/>
+First, let's deploy a web app with a service of type ClusterIPto expose it in the cluster.<br/> 
+I have provided a [sample webapp](https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-deployment.yaml) for this purpose. The webapp simply runs a nginx image and displays 'Welcome to my web app!' on it's index.html.
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
 * [minikube](https://kubernetes.github.io/ingress-nginx/deploy/#minikube)
