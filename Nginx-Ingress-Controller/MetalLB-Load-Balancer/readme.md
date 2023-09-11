@@ -71,6 +71,8 @@ Let’s create a file with configurations for the IPs that MetalLB uses to assig
     name: l2-advert
     namespace: metallb-system
   ```
+  <br/><br/>
+  *here, I ran in to an issue when creating my applying my config files "Internal error occurred: failed calling webhook "ipaddresspoolvalidationwebhook.metallb.io": failed...". T fix this issue, I checked the webooh configs ```kubectl get validatingwebhookconfiguration``` and deleted them ```$ kubectl delete validatingwebhookconfiguration metallb-webhook-configuration```.
 ## Verify your installation
 To verify that your installation was a success check the ingress-controller service
 ```
