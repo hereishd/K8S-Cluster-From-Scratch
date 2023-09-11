@@ -55,7 +55,7 @@ Let’s create a file with configurations for the IPs that MetalLB uses to assig
       - name: default
         protocol: layer2
         addresses:
-        - 192.168.100.105-192.168.100.175
+        - 192.168.XXX.XXX-192.168.XXX.XXX
   ```
   *Note that for the addresses at the bottom of the file, we need to set a range of IP addresses that are available on our system for MetalLb to hand out to our services*<br/><br/>
   * Create The configmap for metallb
@@ -73,15 +73,3 @@ You should now see that your ingress controller's LoadBalancer EXTERNAL-IP has b
 We can create domain name, preferably wildcard for use when creating Ingress routes in Kubernetes.
 <br/><br/>
 You can now go back to finish the your [Ingress Controller Setup](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller)
-
-$ helm install ingress-nginx ingress-nginx \
-  --repo https://kubernetes.github.io/ingress-nginx \
-  --version ${CHART_VERSION} \
-  --namespace ingress-nginx
-
-
-helm install metallb metallb -f values.yaml --repo https://metallb.github.io/metallb --version ${MET_VERSION} --namespace metallb-system
-
-  helm --namespace metallb-system \
-    install --create-namespace \
-    metallb metallb/metallb -f values.yaml
