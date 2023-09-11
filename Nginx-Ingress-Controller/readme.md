@@ -87,11 +87,13 @@ Later on, I will be documenting a method for implementing an external LoadBalanc
 ```
 $ kubectl get svc -n ingress-nginx
 ```
-* Patch the ingress-nginx-controller service by setting it's type to LoadBalancer
+* In case your svc is of type NodePort, Patch the ingress-nginx-controller service by setting it's type to LoadBalancer
 In case your ingress-controller service is of type NodePort, you need to set it to LoadBalancer.
 ```
 $ kubectl -n ingress-nginx patch svc ingress-nginx-controller --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
 ```
+Your Ingress Controller's EXTERNAL_IP should now have been assigned.<br/>
+![IP-Assigned](../img/external-ip-assigned.png)
 
 ## Mapping DNS name for Nginx Ingresses to LB IP
 
