@@ -69,4 +69,4 @@ You should now see that your ingress controller's LoadBalancer EXTERNAL-IP has b
 ## Mapping DNS name for Nginx Ingresses to LB IP
 We can create domain name, preferably wildcard for use when creating Ingress routes in Kubernetes.
 <br/><br/>
-You can now go back to finish your [Ingress Controller Setup](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller)
+You can now go back to finish your [Ingress Controller Setup](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller#set-nginx-ingress-to-use-nginx-load-balancer)

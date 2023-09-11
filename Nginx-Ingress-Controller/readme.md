@@ -82,7 +82,7 @@ Here, you can find my doc explaining how to install and use MetalLB as internal 
 <br/><br/>
 Later on, I will be documenting a method for implementing an external LoadBalancer using NGINX.
 * [Deploy NGINX as external Load Balancer](Nginx-Load-Balancer/readme.md)
-## Set NGINX Ingress to use NGINX Load Balancer
+## Set NGINX Ingress to use the Load Balancer
 * Check the NGINX Ingress Service
 ```
 $ kubectl get svc -n ingress-nginx
