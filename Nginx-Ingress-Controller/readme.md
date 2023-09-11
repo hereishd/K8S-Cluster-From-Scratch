@@ -100,7 +100,7 @@ Your Ingress Controller's EXTERNAL_IP should no longer be in 'pending' state and
 ## Deploy Services to test Nginx Ingress functionality 
 It is now time to deploy a sample webapp and create an Ingress Resource to test our setup.<br/>
 First, let's deploy a web app with a service of type ClusterIP to expose it inside our cluster.<br/> 
-I have provided a [sample web app](https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-deployment.yaml) for this purpose. This web app simply runs a nginx image and displays 'Welcome to my web app!' on it's index page.<br/>
+I have provided a [sample web app](https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-deployment.yaml) for this purpose. This web app simply runs a nginx image and displays 'Welcome to my web app!' on it's index page.
 * Deploy the web app
 You can download [the manifest](https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-deployment.yaml) and apply it or simply run:
 ```
