@@ -92,7 +92,7 @@ In case your ingress-controller service is of type NodePort, you need to set it 
 ```
 $ kubectl -n ingress-nginx patch svc ingress-nginx-controller --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
 ```
-Your Ingress Controller's EXTERNAL_IP should no longer be in <pending> state and now have been assigned an IP.<br/>
+Your Ingress Controller's EXTERNAL_IP should no longer be in 'pending' state and now have been assigned an IP.<br/>
 ![IP-Assigned](../img/external-ip-assigned.png)
 
 ## Mapping DNS name for Nginx Ingresses to LB IP
