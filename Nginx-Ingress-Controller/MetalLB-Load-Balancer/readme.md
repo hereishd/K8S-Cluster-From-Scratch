@@ -1,11 +1,14 @@
-# Deploy MetalLB Load Balancer on Kubernetes Cluster
+# Deploy MetalLB Load Balancer on Kubernetes Cluster (using Helm)
 
-MetalLB is a pure software solution that provides a network load-balancer implementation for Kubernetes clusters that are not deployed in supported cloud provider using standard routing protocols. By installing MetalLB solution, you effectively get LoadBalancer Services within your Kubernetes cluster.
+MetalLB is a pure software solution that provides a network load-balancer implementation for Kubernetes clusters that are not deployed in a supported cloud provider using standard routing protocols. By installing MetalLB solution, you effectively get LoadBalancer Services within your Kubernetes cluster.
 
 ## Requirements
 * A Kubernetes cluster on version 1.13.0 or later. The cluster should not have another network load-balancing functionality.
 * A cluster network configuration that can coexist with MetalLB.
 * Availability of IPv4 addresses that MetalLB will assign to LoadBalancer services when requested.
+* Helm installed.
+<br/>
+*As you can see, for this method, you will need Helm installed. You can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or from the [original Helm website](https://helm.sh/docs/intro/install/).*
 
 ## Preparation
 If you’re using kube-proxy in IPVS mode, since Kubernetes v1.14.2 you have to enable strict ARP mode.<br/>
