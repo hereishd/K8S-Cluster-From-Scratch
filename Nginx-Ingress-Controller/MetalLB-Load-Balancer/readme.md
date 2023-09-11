@@ -1,4 +1,4 @@
-# Deploy MetalLB Load Balancer on Kubernetes Cluster (using Helm)
+# Deploy MetalLB Load Balancer on Kubernetes Cluster
 
 MetalLB is a pure software solution that provides a network load-balancer implementation for Kubernetes clusters that are not deployed in a supported cloud provider using standard routing protocols. By installing MetalLB solution, you effectively get LoadBalancer Services within your Kubernetes cluster.
 
@@ -31,48 +31,37 @@ ipvs:
 ```
 $sudo apt update
 ```
-* Create the namespace
+* Download and Install MetalLB from manifest
 ```
-$ kubectl create ns metallb-system
-```
-* Download Helm MeltalLb repository
-```
-$ helm repo add metallb https://metallb.github.io/metallb
-$ helm repo update
-```
-* Install MetalLB 
-```
-$ helm install metallb metallb/metallb
+$ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 ```
 ## Setting up the the configs
-The installation manifest does not include a configuration file required to use MetalLB. All MetalLB components are started, but will remain in idle state until you finish the necessary configurations. In the previous versions, MetalLB was configured using a ConfigMap. This is no longer the case and now make use of CRs.
-* Create Load Balancer services Pool of IP Addresses<br/>
-MetalLB needs a pool of IP addresses to assign to the services when it gets such request. We have to instruct MetalLB to do so via the IPAddressPool CR.<br/>
+The installation manifest does not include a configuration file required to use MetalLB. All MetalLB components are started, but will remain in idle state until you finish the necessary configurations.
+* Create the ConfigMap<br/>
+MetalLB needs a pool of IP addresses to assign to the services when it gets such request. We have to instruct MetalLB to do so via the condifgmap.<br/>
 Let’s create a file with configurations for the IPs that MetalLB uses to assign IPs to services.<br/>
-  * Create a ```ipaddress_pools.yaml``` file
+  * Create a ```metallb-configmap.yaml``` file
   * Add the following content to the file
   ```
-  apiVersion: metallb.io/v1beta1
-  kind: IPAddressPool
+  apiVersion: v1
+  kind: ConfigMap
   metadata:
-    name: production
+    name: config
     namespace: metallb-system
-  spec:
-    addresses:
-    - 192.168.1.30-192.168.1.50
+  data:
+    config: |
+      address-pools:
+      - name: default
+        protocol: layer2
+        addresses:
+        - 192.168.100.105-192.168.100.175
   ```
   *Note that for the addresses at the bottom of the file, we need to set a range of IP addresses that are available on our system for MetalLb to hand out to our services*<br/><br/>
-  * Announce service IPs after creation by creating a l2advert.yaml 
-  * Add the following content to the file.
+  * Create The configmap for metallb
   ```
-  apiVersion: metallb.io/v1beta1
-  kind: L2Advertisement
-  metadata:
-    name: l2-advert
-    namespace: metallb-system
+  $ kubectl apply -f metallb-configmap.yaml
   ```
-  <br/><br/>
-  *here, I ran in to an issue when creating my applying my config files "Internal error occurred: failed calling webhook "ipaddresspoolvalidationwebhook.metallb.io": failed...". T fix this issue, I checked the webooh configs ```kubectl get validatingwebhookconfiguration``` and deleted them ```$ kubectl delete validatingwebhookconfiguration metallb-webhook-configuration```.
 ## Verify your installation
 To verify that your installation was a success check the ingress-controller service
 ```
@@ -84,3 +73,15 @@ You should now see that your ingress controller's LoadBalancer EXTERNAL-IP has b
 We can create domain name, preferably wildcard for use when creating Ingress routes in Kubernetes.
 <br/><br/>
 You can now go back to finish the your [Ingress Controller Setup](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller)
+
+$ helm install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --version ${CHART_VERSION} \
+  --namespace ingress-nginx
+
+
+helm install metallb metallb -f values.yaml --repo https://metallb.github.io/metallb --version ${MET_VERSION} --namespace metallb-system
+
+  helm --namespace metallb-system \
+    install --create-namespace \
+    metallb metallb/metallb -f values.yaml
