@@ -7,7 +7,7 @@ MetalLB is a pure software solution that provides a network load-balancer implem
 * A cluster network configuration that can coexist with MetalLB.
 * Availability of IPv4 addresses that MetalLB will assign to LoadBalancer services when requested.
 * Helm installed.
-<br/>
+
 *As you can see, for this method, you will need Helm installed. You can follow the 'Installing Helm' section from my [Helm documentation repository](https://github.com/hereishd/k8s_Tutorials/tree/main/Helm) or from the [original Helm website](https://helm.sh/docs/intro/install/).*
 
 ## Preparation
