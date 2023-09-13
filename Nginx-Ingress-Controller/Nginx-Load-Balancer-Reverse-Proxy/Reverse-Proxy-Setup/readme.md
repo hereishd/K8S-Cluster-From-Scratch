@@ -25,4 +25,17 @@ $ kubectl get all -n ingress-nginx
 You can see that the ```service/ingress-nginx-controller``` is of type NodePort.<br/><br/>
 You can also test that it is pointing to your ingress-controller via the port that has been assigned. For this select the appropiate worker's cluster IP (since the controller is on the worker node) and add the mapping port from your ingress-nginx-controller service (ex: 192.168.100.15:31647). Since we did not declare any ingress resource we should land on the NGINX 404 not found page.
 
-## Seeting up the NGINX reverse proxy
+## Create an Ingress
+Now, I will deploy a sample application with an Ingress.
+
+## Setting up the NGINX reverse proxy
+ * Install NGINX on  The VM
+ ```
+ $ sudo apt install nginx
+ ```
+ * Disable the default virtual host
+ ```
+ $ sudo unlink /etc/nginx/sites-enabled/default
+ ```
+ * Create the NGINX reverse proxy configuration
+ For this, We create a file under ```etc/nginx/sites-available```. I chose to name it ```reverse-proxy.conf```.
