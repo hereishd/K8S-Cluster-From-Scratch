@@ -107,6 +107,11 @@ You can download [the manifest](https://github.com/hereishd/K8S-From-Scratch/blo
 $ kubectl apply -f https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-deployment.yaml
 ```
 * Deploy the Ingress
+You can download [the manifest](https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-ingress.yaml) and apply it or simply run:
+```
+$ kubectl apply -f https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-ingress.yaml
+```
+*Here, I ran through an error. The ingress couldn't be validated due to a webhookvalidation error. I found a work around by deleting the validationwebhook and all works fine. This can be done with the command ```$ kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission```. This is probably not the best solution but eventually I'll be reading more on this error and it's cause.*
 
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
@@ -116,8 +121,4 @@ The deployment process varies depending on your Kubernetes setup. My Kubernetes 
 * [Azure](https://kubernetes.github.io/ingress-nginx/deploy/#azure)
 * [GCE-GKE](https://kubernetes.github.io/ingress-nginx/deploy/#gce-gke)
 
-If no above option is suitable for you, others are also available. Refer to the [official documentation](https://kubernetes.github.io/ingress-nginx/deploy/).
-
-
-
-kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission******************************************
+If no above option is suitable for you, others are also available. In this case, please refer to the [official documentation](https://kubernetes.github.io/ingress-nginx/deploy/).
