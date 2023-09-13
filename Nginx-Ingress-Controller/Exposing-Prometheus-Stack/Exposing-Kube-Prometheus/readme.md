@@ -32,7 +32,9 @@ spec:
             name: prometheus-k8s
             port:
               number: 9090
+
 ---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
