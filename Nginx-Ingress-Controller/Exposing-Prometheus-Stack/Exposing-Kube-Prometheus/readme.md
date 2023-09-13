@@ -86,4 +86,4 @@ And not add a line for each of your Ingress mapping your Ingress controller's EX
 
 ## Additional notes & Reference
 
-The [official documentation](https://github.com/prometheus-operator/kube-prometheus/blob/main/docs/customizations/exposing-prometheus-alertmanager-grafana-ingress.md) sets this up making use of a basic authentication form. It uses a secret and ```htpasswd```. 
+The [official documentation](https://github.com/prometheus-operator/kube-prometheus/blob/main/docs/customizations/exposing-prometheus-alertmanager-grafana-ingress.md) sets this up making use of a basic authentication. It uses a secret and ```htpasswd```. You can always take a look if you are interested.
