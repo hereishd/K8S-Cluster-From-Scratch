@@ -80,7 +80,8 @@ When a service is deployed in cloud environment, Load Balancer will be available
 Here, you can find my doc explaining how to install and use MetalLB as internal LoadBalancer.
 * [Deploying MetalLB as internal Load Balancer](MetalLB-Load-Balancer/readme.md)
 <br/><br/>
-Later on, I will be documenting a method for implementing an external LoadBalancer using NGINX.
+Later on, I will be documenting a method for implementing using NGINX as anexternal LoadBalancer and using NGINX as a reverse-proxy.
+* [Deploy NGINX as reverse proxy]() (exposing your NGINX controller with NodePort service)
 * [Deploy NGINX as external Load Balancer](Nginx-Load-Balancer/readme.md)
 ## Set NGINX Ingress to use the Load Balancer
 * Check the NGINX Ingress Service
