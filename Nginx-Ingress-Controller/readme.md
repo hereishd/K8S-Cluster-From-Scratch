@@ -96,6 +96,12 @@ Your Ingress Controller's EXTERNAL_IP should no longer be in 'pending' state and
 ![IP-Assigned](../img/external-ip-assigned.png)
 
 ## Mapping DNS name for Nginx Ingresses to LB IP
+Since I am working with VirtualBox and a cluster made from VM's, we need to map our dns to our IPs. As we can see in our [sample ingress file](https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-Ingress-Controller/sample-webapp/sample-ingress.yaml) we will be using for the demo, we need to declare a host. This host's dns needs to be mapped in our hosts file so our system can resolve it.
+* Edit the hosts file
+```
+$ sudo nano /etc/hosts
+``` 
+Here you add your ingress controller's EXTERNAL_IP and map it to the domain of your choice. I chose cluster1.homelab.com.
 
 ## Deploy Services to test Nginx Ingress functionality 
 It is now time to deploy a sample webapp and create an Ingress Resource to test our setup.<br/>
