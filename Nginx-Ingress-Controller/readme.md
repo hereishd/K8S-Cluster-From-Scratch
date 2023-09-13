@@ -101,7 +101,7 @@ Since I am working with VirtualBox and a cluster made from VM's, we need to map 
 ```
 $ sudo nano /etc/hosts
 ``` 
-Here you add your ingress controller's EXTERNAL_IP and map it to the domain of your choice. I chose cluster1.homelab.com.
+Here you add your ingress controller's EXTERNAL_IP and map it to the domain of your choice. I chose ```cluster1.homelab.com```.
 
 ## Deploy Services to test Nginx Ingress functionality 
 It is now time to deploy a sample webapp and create an Ingress Resource to test our setup.<br/>
