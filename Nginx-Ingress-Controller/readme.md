@@ -73,7 +73,7 @@ A Load balancer is responsible for the provision of a single IP address to route
 Note that for the external connectivity method, we have two major options:
 * Using a Load Balancer (Highly recommended)
 * Using Specific Nodes to run Nginx Ingress Pods (NOT recommended)<br/>
-This is not a recommended implementation and I will possibly document it in the future to serve as reference documentation.
+This is not a recommended implementation but it's setup is [documented here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Nginx-Load-Balancer-Reverse-Proxy/Reverse-Proxy-Setup) as reference under the 'Configuring/Installing the NGINX Ingress Controller with NodePort service
 <br/><br/>
 So here, we are going to make use of the Load Balancer. The Load balancer is used to expose an application running in Kubernetes cluster to the external network. It provides a single IP address to route incoming requests to Ingress controller application. In order to successfully create Kubernetes services of type LoadBalancer, you need to have the load balancer implementation inside / or outside Kubernetes.<br/>
 When a service is deployed in cloud environment, Load Balancer will be available to your service by default. Ingress service should get the LB IP address automatically. But for Baremetal installations you’ll need to deploy a Load Balancer implementation for Kubernetes. I have found multiple articles recommending to use MetalLB as internal Load Balancer for a Bare Metal cluster installation.<br/><br/>
