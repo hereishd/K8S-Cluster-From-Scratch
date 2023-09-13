@@ -29,13 +29,39 @@ You can also test that it is pointing to your ingress-controller via the port th
 Now, I will deploy a sample application with an Ingress.
 
 ## Setting up the NGINX reverse proxy
- * Install NGINX on  The VM
- ```
- $ sudo apt install nginx
- ```
- * Disable the default virtual host
- ```
- $ sudo unlink /etc/nginx/sites-enabled/default
- ```
- * Create the NGINX reverse proxy configuration
- For this, We create a file under ```etc/nginx/sites-available```. I chose to name it ```reverse-proxy.conf```.
+* Install NGINX on  The VM
+```
+$ sudo apt install nginx
+```
+* Disable the default virtual host
+```
+$ sudo unlink /etc/nginx/sites-enabled/default
+```
+* Create the NGINX reverse proxy configuration
+For this, We create a file under ```etc/nginx/sites-available```. I chose to name it ```reverse-proxy.conf```.<br/>
+Here, we will define **upstream** blocks that are each used to define a cluster that you can proxy requests to. In this block, we are going to pass the <IP:PORT> of our NGINX Ingress Controller. Note that if your cluster has an internal Load Balancer, we just need to put it's EXTERNAL_IP.<br/>
+We also define a **location** block where we are going to define where to redirect the request via **proxy_pass**. We are also going to set the headers for **proxy_set_headers** in order to successfully direct our request.<br/>
+We will also make use og NGINX variables **$host** to grab the host from our request and assign it to the **upstream** variable. This way, we are going to name our upstream blocks the same way as our host request and pass then to the proxy_pass instruction. <br/>
+The **listen** instruction defines the port that NGINX listens on.<br/>Our file will look like this:
+```
+upstream example.cluster1.com {
+	server <Ingress-Controller's IP:PORT>;
+}
+
+upstream example.cluster2.com {
+    server <Ingress-Controller's IP:PORT>;
+}
+
+server {
+
+	listen 80;
+
+	set $upstream $host;
+
+	location / {
+		proxy_pass http://$upstream;
+		proxy_set_header Host $host;
+		proxy_set_header X-Forwarded-For $remote_addr;
+	}
+}
+```
