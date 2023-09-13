@@ -121,7 +121,7 @@ $ kubectl apply -f https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-
 
 ## Additional Exercise
 To practice your knowledge and make use of Ingress in a useful way, I suggest that you setup Ingress for your monitoring stack (prometheus, alertmanager, grafana).<br/>
-The full solution and extra documentation if you installed kube-prometheus with the manifest files is [available here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Kube-Prometheus).<br/>I still recommend you doing it by your own before checking.<br/>
+The full solution and extra documentation if you installed kube-prometheus with the manifest files is [available here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Kube-Prometheus).<br/>*I still recommend you doing it by yourself before checking.*<br/>
 In case you installed the prometheus-stack it with Helm, my documentation about updating the values passed to your release is [available here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Prometheus-Stack). 
 
 ## Additional Notes
