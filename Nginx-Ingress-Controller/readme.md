@@ -121,8 +121,8 @@ $ kubectl apply -f https://github.com/hereishd/K8S-From-Scratch/blob/main/Nginx-
 
 ## Additional Exercise
 To practice your knowledge and make use of Ingress in a useful way, I suggest that you setup Ingress for your monitoring stack (prometheus, alertmanager, grafana).<br/>
-The full solution and extra documentation if you installed kube-prometheus with the manifest files is available [here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Kube-Prometheus). I still recommend you doing it by your own before checking.<br/><br/>
-In case you installed the prometheus-stack it with Helm, my documentation about updating the values passed to your release can be found [here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Prometheus-Stack). 
+The full solution and extra documentation if you installed kube-prometheus with the manifest files is [available here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Kube-Prometheus).<br/>I still recommend you doing it by your own before checking.<br/><br/>
+In case you installed the prometheus-stack it with Helm, my documentation about updating the values passed to your release is [available here](https://github.com/hereishd/K8S-From-Scratch/tree/main/Nginx-Ingress-Controller/Exposing-Your-Monitoring-Stack/Exposing-Prometheus-Stack). 
 
 ## Additional Notes
 The deployment process varies depending on your Kubernetes setup. My Kubernetes uses the Bare-metal NGINX Ingress deployment guide. For other Kubernetes clusters including managed clusters refer to below guides:
