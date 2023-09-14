@@ -41,15 +41,11 @@ $ sudo unlink /etc/nginx/sites-enabled/default
 For this, We create a file under ```etc/nginx/sites-available```. I chose to name it ```reverse-proxy.conf```.<br/>
 Here, we will define **upstream** blocks that are each used to define a cluster that you can proxy requests to. In this block, we are going to pass the <IP:PORT> of our NGINX Ingress Controller. Note that if your cluster has an internal Load Balancer, we just need to put it's EXTERNAL_IP.<br/>
 We also define a **location** block where we are going to define where to redirect the request via **proxy_pass**. We are also going to set the headers for **proxy_set_headers** in order to successfully direct our request.<br/>
-We will also make use og NGINX variables **$host** to grab the host from our request and assign it to the **upstream** variable. This way, we are going to name our upstream blocks the same way as our host request and pass then to the proxy_pass instruction. <br/>
+We will also make use og NGINX variables **$host** to grab the host from our request and assign it to the **upstream** variable. This way, we are going to name our upstream blocks the same way as our host request and pass them to the proxy_pass instruction. <br/>
 The **listen** instruction defines the port that NGINX listens on.<br/>Our file will look like this:
 ```
 upstream example.cluster1.com {
 	server <Ingress-Controller's IP:PORT>;
-}
-
-upstream example.cluster2.com {
-    server <Ingress-Controller's IP:PORT>;
 }
 
 server {
@@ -65,3 +61,42 @@ server {
 	}
 }
 ```
+* Link directives to sites-enabeled
+Now, we activate the directives by linking them to ```/sites-enabled/```
+```
+$ sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
+```
+* Apply ou settings
+To apply our setting we have the option of restarting our NGINX service
+```
+$ sudo systemctl restard nginx
+```
+Or we can reload the settings 
+```
+$ nginx -s reload
+```
+* Debug in case of error
+When reload or settings or restarting our service, we can get an error if NGINX has a problem with our config file. By running the following command
+```
+$ nginx -t
+```
+We can get an output of the error code/reason that can help uf fix the error. 
+
+
+## Additional Notes
+If we decide to eventually spin up more clusters, In order to add them to our reverse proxy we will only have to add more upstream blocks:
+```
+upstream example.cluster2.com {
+    server <Ingress-Controller's IP:PORT>;
+}
+```
+In case ou Ingress Controler is set to node balance, we only need to remove the PORT from the IP:PORT because 80 is the port by default.
+```
+upstream example.cluster3LoadBalncer.com {
+    server <Ingress-Controller's IP>;
+}
+```
+
+## References
+* [NGINX  doc] (https://nginx.org/en/)
+* [NGINX ngx_http_upstream_module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html)
