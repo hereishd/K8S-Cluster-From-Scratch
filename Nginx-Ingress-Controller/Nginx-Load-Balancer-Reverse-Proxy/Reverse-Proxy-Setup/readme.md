@@ -23,8 +23,45 @@ We can now check our installation with
 $ kubectl get all -n ingress-nginx
 ```
 You can see that the ```service/ingress-nginx-controller``` is of type NodePort.<br/><br/>
-You can also test that it is pointing to your ingress-controller via the port that has been assigned. For this select the appropiate worker's cluster IP (since the controller is on the worker node) and add the mapping port from your ingress-nginx-controller service (ex: 192.168.100.15:31647). Since we did not declare any ingress resource we should land on the NGINX 404 not found page.
-
+You can also test that it is pointing to your ingress-controller via the port that has been assigned. For this select the appropiate worker's cluster IP (since the controller is on the worker node) and add the mapping port from your ingress-nginx-controller service (ex: 192.168.100.15:31647). Since we did not declare any ingress resource we should land on the NGINX 404 not found page.<br/><br/>
+Note that doing it this way will always have our NodePort changing when stoping and restarting the controller (evry time we reboot the VMs). To set our NodePort, we will edit our manifest file.
+* Obtain your manifest file
+```
+helm template ingress-nginx ingress-nginx \
+--repo https://kubernetes.github.io/ingress-nginx \
+--namespace ingress-nginx \
+--set controller.service.type=NodePort > manifest.yaml
+```
+* Edit your manifest.yaml
+In our manifest file search for NodePort. In the Service where you find your NodePort, add the node port field and define your ports. It will then look like
+```
+type: NodePort
+  ipFamilyPolicy: SingleStack
+  ipFamilies: 
+    - IPv4
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+      appProtocol: http
+      nodePort: 30100
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
+      appProtocol: https
+      nodePort: 30200
+```
+* Apply the manifest
+```
+$ kubectl apply -f manifest.yaml
+```
+* Check our NodePorts
+```
+$ kubectl get svc -n ingress-nginx
+```
+You can now see that our node ports have been asigned the numbers we gave them and this will be the case every time we reboot our VMs.
 ## Create an Ingress
 Now, I will deploy a sample application with an Ingress.
 
