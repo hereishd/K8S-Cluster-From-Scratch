@@ -1,6 +1,6 @@
 # K8S Cluster From Scratch (with VirtualBox and Ubuntu 22.04LTS)
 
-This is my personal documentation containing the steps for building a Kubernetes Cluster from scratch on VirtualBox with Ubuntu 22.04LTS.
+This is my personal documentation containing the steps for building a Kubernetes Cluster from scratch on VirtualBox with Ubuntu 22.04LTS using kubeadm.
 
 ## Before you begin
 
